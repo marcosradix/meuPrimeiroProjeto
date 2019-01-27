@@ -20,6 +20,7 @@ import io.swagger.annotations.ApiResponses;
 @RequestMapping("/api/empresas")
 public class EmpresaController {
 
+
 	@ApiOperation(value = "Cadastrar itens.", response = EmpresaDto.class)
 	@ApiResponses(value= {
 			@ApiResponse(code = 200, message = "Sucesso"),

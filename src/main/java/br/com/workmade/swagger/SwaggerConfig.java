@@ -2,6 +2,7 @@ package br.com.workmade.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+//import org.springframework.context.annotation.Profile;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -11,11 +12,12 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-
 @Configuration
 @EnableSwagger2
+//@Profile(value= {"dev", "test"})
 public class SwaggerConfig {
 
+	
 	
 	@Bean
 	public Docket api() {
@@ -25,9 +27,7 @@ public class SwaggerConfig {
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Swagger API")
+		return new ApiInfoBuilder().title("ManagerAPI")
 				.description("Documentação de api de acesso dos endpoints com swagger").version("1.0").build();
 	}
 }
-
-

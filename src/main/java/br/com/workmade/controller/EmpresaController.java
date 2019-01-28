@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,7 +37,7 @@ public class EmpresaController {
 		Response<EmpresaDto> response = new Response<EmpresaDto>();
 
 		if (result.hasErrors()) {
-			result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
+			result.getAllErrors().forEach(error -> response.getErrors().put(((FieldError) error).getField(), error.getDefaultMessage()));
 			return ResponseEntity.badRequest().body(response);
 		}
 
